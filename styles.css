@@ -196,7 +196,7 @@ input[name='fondo']{
     background-color: black;
    }
 
-   background-image: url('/video2.gif');
+   background-image: url('video2.gif');
    background-repeat: no-repeat;
    background-size: cover;
    height: 100vh;
