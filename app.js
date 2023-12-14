@@ -146,8 +146,6 @@ function endGame (turno) {
     if(buscarValores(posiciones[turno],combinaciones.h1) | buscarValores(posiciones[turno],combinaciones.h2) | buscarValores(posiciones[turno],combinaciones.h3) | buscarValores(posiciones[turno],combinaciones.v1) |  buscarValores(posiciones[turno],combinaciones.v2) |  buscarValores(posiciones[turno],combinaciones.v3) |  buscarValores(posiciones[turno],combinaciones.d1) | buscarValores(posiciones[turno],combinaciones.d2)){
         const ganador = turno;
         return turno;
-    }else if(buscarValores(posiciones.posicionesG, combinaciones.e){
-        return "empate";
     }else{
        return false;
     }
@@ -178,10 +176,6 @@ tablero.addEventListener('click', (e) => {
         tablero.classList.add('inactivo')
         pantallaFinal.firstElementChild.textContent = `El ganador es: ${turnoActual}`
         pantallaFinal.classList.add('pantalla-visible')
-    }else if(endGame(turnoActual) == 'empate'){
-       tablero.classList.add('inactivo');
-        pantallaFinal.firstElementChild.textContent = `Habeis empatado`;
-        pantallaFinal.classList.add('pantalla-visible');
     }
     alternarTurnos();
    h1.textContent = 'El turno es para:' + turnoActual;
