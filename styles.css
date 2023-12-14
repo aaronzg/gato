@@ -178,7 +178,7 @@ input[name='fondo']{
 }
 
 .background-gif-black{
-    background-image: url('/gif1.gif');
+    background-image: url('gif1.gif');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
