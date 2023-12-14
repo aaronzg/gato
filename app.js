@@ -34,9 +34,7 @@ miAudio.currentTime = 18;
 audioContainer.appendChild(miAudio);
 
 const audio2 = document.querySelector('#audio2');
-
 audio2.controls = false;
-
 
 
 
@@ -116,8 +114,7 @@ combinaciones = {
     v2:[2,5,8].map(val => val.toString()),
     v3:[3,6,9].map(val => val.toString()),
     d1:[1,5,9].map(val => val.toString()),
-    d2:[3,5,7].map(val => val.toString()),
-   e:[1,2,3,4,5,6,7,8,9].map(val => val.toString())
+    d2:[3,5,7].map(val => val.toString())
 }
 
 function buscarValores (arr,valores) {
@@ -147,7 +144,7 @@ function endGame (turno) {
         const ganador = turno;
         return turno;
     }else{
-       return false;
+        return false;
     }
 }
 
@@ -158,11 +155,9 @@ posiciones = {
         if(!this[turno].includes(posicion)){
             this[turno].push(posicion);
         }
-    },
-   posicionesG: [posiciones.X.map(e => e), posiciones.O.map(e => e)].flat();
+    }
 }
 
-const h1 = document.querySelector(".turno");
 
 
 tablero.addEventListener('click', (e) => {
@@ -172,13 +167,12 @@ tablero.addEventListener('click', (e) => {
 
     casilla.textContent = turnoActual;
     casilla.classList.add('s');
-    if(endGame(turnoActual) == turnoActual){
+    if(endGame(turnoActual)){
         tablero.classList.add('inactivo')
         pantallaFinal.firstElementChild.textContent = `El ganador es: ${turnoActual}`
         pantallaFinal.classList.add('pantalla-visible')
     }
     alternarTurnos();
-   h1.textContent = 'El turno es para:' + turnoActual;
 })
 
 
@@ -189,4 +183,3 @@ const reiniciar = pantallaFinal.children[1];
 reiniciar.addEventListener('click', () => {
     window.location.reload();
 })
-
