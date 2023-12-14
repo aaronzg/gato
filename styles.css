@@ -192,9 +192,6 @@ input[name='fondo']{
 
 
 .white{
-   .casilla{
-    background-color: black;
-   }
 
    background-image: url('video2.gif');
    background-repeat: no-repeat;
