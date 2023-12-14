@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gato</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/c1337c2476.js" crossorigin="anonymous"></script>
+</head>
+<body class="">
+
+    <main class="contenedor-principal">
+        
+            <i class="fa-solid fa-pen-to-square fa-2xl abrir-menu" width="40px" height="40px" id="ajustesBoton" ></i>
+       
+        <div class="contenedor-turno">
+            <h1 class="turno">El turno es para x</h1>
+        </div>
+        <div class="tablero">
+            <div class="casilla1 casilla" posicion='1'><h1 class="simbolo"></h1></div>
+            <div class="casilla2 casilla" posicion="2"><h1 class="simbolo"></h1></div>
+            <div class="casilla3 casilla" posicion="3"><h1 class="simbolo"></h1></div>
+            <div class="casilla4 casilla" posicion="4"><h1 class="simbolo"></h1></div>
+            <div class="casilla5 casilla" posicion="5"><h1 class="simbolo"></h1></div>
+            <div class="casilla6 casilla" posicion="6"><h1 class="simbolo"></h1></div>
+            <div class="casilla7 casilla" posicion="7"><h1 class="simbolo"></h1></div>
+            <div class="casilla8 casilla" posicion="8"><h1 class="simbolo"></h1></div>
+            <div class="casilla9 casilla" posicion="9"><h1 class="simbolo"></h1></div>
+        </div>
+
+        
+    </main>
+    
+    <article class="ajustes">
+        <h3 class="option-title">Elegir color del fondo</h3>
+        
+        <form action="" class="background">
+
+            <label for="fondo" class="fondo ajuste">
+                Color predeterminado
+                <input type="radio" name="fondo" id="normal" class="radio" value="normal" checked>
+            </label>
+            <label for="fondo" class="fondo ajuste">
+                Fondo negro
+                <input type="radio" name="fondo" id="black" class="radio" value="background-gif-black">
+            </label>
+            <label for="fondo" class="fondo ajuste">
+                Fondo blanco
+                <input type="radio" name="fondo" id="white" value="white" class="radio">
+            </label>
+            <label for="confirm" class="fondo ajuste">
+                <button type="submit" class="confirmar-ajuste btn" id="confirm">Cambiar fondo</button>
+            </label>
+
+        </form>
+
+        <form action="" class="reset">
+            <label for="rButton" class="fondo">
+                <h3 class="option-title">Reinicar partida</h3>
+                <button type="submit" class="boton btn" id="rButton">Reiniciar</button>
+            </label>
+        </form>
+    </article>
+
+    <article class="pantalla-final">
+        <p class="ganador">El ganador es:</p>
+        <button class="reiniciar btn">Volver a jugar</button>
+    </article>
+
+    <div class="audio">
+
+    </div>
+    <div class="audio2">
+        <audio controls="false" id="audio2">
+            <source src="/sas.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</body>
+</html>
