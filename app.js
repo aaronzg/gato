@@ -35,6 +35,8 @@ audioContainer.appendChild(miAudio);
 
 const audio2 = document.querySelector('#audio2');
 audio2.controls = false;
+audio2.controls = false;
+muAudio.controls = false;
 
 
 
