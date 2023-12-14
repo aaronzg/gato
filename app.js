@@ -22,7 +22,7 @@ miAudio.controls = false;
 
 // Crear la fuente del audio
 let source = document.createElement('source');
-source.src = '/cancion.mp3';
+source.src = 'cancion.mp3';
 source.type = 'audio/mpeg';
 
 // Agregar la fuente al elemento de audio
@@ -114,7 +114,8 @@ combinaciones = {
     v2:[2,5,8].map(val => val.toString()),
     v3:[3,6,9].map(val => val.toString()),
     d1:[1,5,9].map(val => val.toString()),
-    d2:[3,5,7].map(val => val.toString())
+    d2:[3,5,7].map(val => val.toString()),
+   e:[1,2,3,4,5,6,7,8,9].map(val => val.toString())
 }
 
 function buscarValores (arr,valores) {
@@ -143,8 +144,10 @@ function endGame (turno) {
     if(buscarValores(posiciones[turno],combinaciones.h1) | buscarValores(posiciones[turno],combinaciones.h2) | buscarValores(posiciones[turno],combinaciones.h3) | buscarValores(posiciones[turno],combinaciones.v1) |  buscarValores(posiciones[turno],combinaciones.v2) |  buscarValores(posiciones[turno],combinaciones.v3) |  buscarValores(posiciones[turno],combinaciones.d1) | buscarValores(posiciones[turno],combinaciones.d2)){
         const ganador = turno;
         return turno;
+    }else if(buscarValores(posiciones.posicionesG, combinaciones.e){
+        return "empate";
     }else{
-        return false;
+       return false;
     }
 }
 
@@ -155,9 +158,11 @@ posiciones = {
         if(!this[turno].includes(posicion)){
             this[turno].push(posicion);
         }
-    }
+    },
+   posicionesG: [posiciones.X.map(e => e), posiciones.O.map(e => e)].flat();
 }
 
+const h1 = document.querySelector(".turno");
 
 
 tablero.addEventListener('click', (e) => {
@@ -167,12 +172,17 @@ tablero.addEventListener('click', (e) => {
 
     casilla.textContent = turnoActual;
     casilla.classList.add('s');
-    if(endGame(turnoActual)){
+    if(endGame(turnoActual) == turnoActual){
         tablero.classList.add('inactivo')
         pantallaFinal.firstElementChild.textContent = `El ganador es: ${turnoActual}`
         pantallaFinal.classList.add('pantalla-visible')
+    }else if(endGame(turnoActual) == 'empate'){
+       tablero.classList.add('inactivo');
+        pantallaFinal.firstElementChild.textContent = `Habeis empatado`;
+        pantallaFinal.classList.add('pantalla-visible');
     }
     alternarTurnos();
+   h1.textContent = 'El turno es para:' + turnoActual;
 })
 
 
