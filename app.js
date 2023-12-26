@@ -41,6 +41,13 @@ audio2.controls = false;
 
 // ********* CONFIGURACIONES **********
 let backgroundColor = localStorage.getItem('background');
+if(backgroundColor != 'normal'){
+    if(backgroundColor == 'background-gif-black'){
+        miAudio.play();
+    }else{
+        audio2.play();
+    }
+}
 const body = document.body;
 body.classList.add(backgroundColor);
 const backgroundOptions = document.querySelector('.background');
@@ -114,7 +121,8 @@ combinaciones = {
     v2:[2,5,8].map(val => val.toString()),
     v3:[3,6,9].map(val => val.toString()),
     d1:[1,5,9].map(val => val.toString()),
-    d2:[3,5,7].map(val => val.toString())
+    d2:[3,5,7].map(val => val.toString()),
+    e:[1,2,3,4,5,6,7,8,9].map(val => val.toString())
 }
 
 function buscarValores (arr,valores) {
@@ -140,13 +148,17 @@ function alternarTurnos () {
 
 
 function endGame (turno) {
-    if(buscarValores(posiciones[turno],combinaciones.h1) | buscarValores(posiciones[turno],combinaciones.h2) | buscarValores(posiciones[turno],combinaciones.h3) | buscarValores(posiciones[turno],combinaciones.v1) |  buscarValores(posiciones[turno],combinaciones.v2) |  buscarValores(posiciones[turno],combinaciones.v3) |  buscarValores(posiciones[turno],combinaciones.d1) | buscarValores(posiciones[turno],combinaciones.d2)){
+    if(e.flat().length == 9){
+        return 'Empate';
+    }
+    else if(buscarValores(posiciones[turno],combinaciones.h1) | buscarValores(posiciones[turno],combinaciones.h2) | buscarValores(posiciones[turno],combinaciones.h3) | buscarValores(posiciones[turno],combinaciones.v1) |  buscarValores(posiciones[turno],combinaciones.v2) |  buscarValores(posiciones[turno],combinaciones.v3) |  buscarValores(posiciones[turno],combinaciones.d1) | buscarValores(posiciones[turno],combinaciones.d2)){
         const ganador = turno;
         return turno;
     }else{
         return false;
     }
 }
+
 
 posiciones = {
     X:[],
@@ -158,6 +170,7 @@ posiciones = {
     }
 }
 
+let e = [posiciones['X'], posiciones['O']];
 
 
 tablero.addEventListener('click', (e) => {
@@ -167,10 +180,14 @@ tablero.addEventListener('click', (e) => {
 
     casilla.textContent = turnoActual;
     casilla.classList.add('s');
-    if(endGame(turnoActual)){
+    if(endGame(turnoActual) == turnoActual){
+        tablero.classList.add('inactivo');
+        pantallaFinal.firstElementChild.textContent = `El ganador es: ${turnoActual}`;
+        pantallaFinal.classList.add('pantalla-visible');
+    }else if(endGame(turnoActual) == 'Empate'){
         tablero.classList.add('inactivo')
-        pantallaFinal.firstElementChild.textContent = `El ganador es: ${turnoActual}`
-        pantallaFinal.classList.add('pantalla-visible')
+        pantallaFinal.firstElementChild.textContent = `Empate`;
+        pantallaFinal.classList.add('pantalla-visible');
     }
     alternarTurnos();
 })
@@ -183,3 +200,4 @@ const reiniciar = pantallaFinal.children[1];
 reiniciar.addEventListener('click', () => {
     window.location.reload();
 })
+

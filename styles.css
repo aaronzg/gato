@@ -192,6 +192,7 @@ input[name='fondo']{
 
 
 .white{
+  
 
    background-image: url('video2.gif');
    background-repeat: no-repeat;
@@ -199,9 +200,6 @@ input[name='fondo']{
    height: 100vh;
    background-position: center;
 
-   .abrir-menu{
-    color: black;
-   }
 }
 
 .inactivo{
